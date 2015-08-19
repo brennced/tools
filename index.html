@@ -52,6 +52,34 @@
 			a:hover {
 				text-decoration: underline;
 			}
+			a.tooltip:after {
+				-webkit-transition: all 0.2s ease-out;
+				-moz-transition: all 0.2s ease-out;
+				content: "http://brennced.github.io" attr(href);
+				display: inline-block;
+				position: relative;
+				left: 15px;
+				top: -50px;
+				color: #FFFFFF;
+				text-decoration: none;
+				font-size: 70%;
+				vertical-align: middle;
+				background-color: #0D7FFE;
+				opacity: 0;
+				overflow: hidden;
+				height: 15px;
+				z-index: 99;
+			}
+			a.tooltip:hover:after {
+				width: auto;
+				opacity: 1;
+				top: 0px;
+			}
+			#separate {
+				color: gray;
+				margin-left: 2px;
+				margin-right: 2px;
+			}
 		</style>
 	</head>
 	<body>
@@ -59,7 +87,7 @@
 		<hr id="spacetop" />
 		<div id="content">
 			<center>
-				<a href="color/">Color converter</a>
+				<a href="/tools/color/" class="tooltip">Color converter</a>
 			</center>
 		</div>
 		<hr />
