@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Color converter - RGB to Hex</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width">
+		<style>
+			.num { width: 1.8em; }
+			h1 { margin: 0px; padding: 0px; }
+		</style>
+		<style>
+			body {
+				font-family: sans-serif;
+			}
+			
+			#cprev {
+				border: gainsboro 2px inset;
+				display: inline-block;
+				height: 14px;
+				width: 18px;
+				margin: 0px;
+				background-color: #000000;
+				vertical-align: middle;
+				position: relative;
+				top: 1px;
+			}
+			
+			noscript {
+				color: maroon;
+				font-weight: bold;
+			}
+			
+			input[type="text"] {
+				-webkit-apperance: none;
+				-moz-apperance: none;
+				-ms-apperance: none;
+				apperance: none;
+				padding: 1px;
+				border: 2px gainsboro inset;
+				box-shadow: none;
+				background-color: white;
+				background-image: none;
+				border-radius: 0px;
+				background-clip: padding-box;
+			}
+			
+			h1 > a {
+				font-size: 50%;
+				vertical-align: middle;
+				color: gray;
+				text-decoration: none;
+			}
+			
+			#content {
+				width: 40%;
+				position: relative;
+				left: 30%;
+			}
+		</style>
+		<script>
+			function convertColor() {
+				var R;
+				var G;
+				var B;
+				var HR;
+				var HG;
+				var HB;
+				var C;
+				
+				if (document.getElementById('cr').value == '') {
+					document.getElementById('cr').value = '0';
+				}
+				if (document.getElementById('cg').value == '') {
+					document.getElementById('cg').value = '0';
+				}
+				if (document.getElementById('cb').value == '') {
+					document.getElementById('cb').value = '0';
+				}
+				
+				if (parseInt(document.getElementById('cr').value) > 255) {
+					document.getElementById('cr').value = '255';
+				}
+				if (parseInt(document.getElementById('cg').value) > 255) {
+					document.getElementById('cg').value = '255';
+				}
+				if (parseInt(document.getElementById('cb').value) > 255) {
+					document.getElementById('cb').value = '255';
+				}
+				
+				R = parseInt(document.getElementById('cr').value);
+				G = parseInt(document.getElementById('cg').value);
+				B = parseInt(document.getElementById('cb').value);
+				
+				if (isNum(document.getElementById('cr').value) == false) { R = 0; document.getElementById('cr').value = '0'; }
+				if (isNum(document.getElementById('cg').value) == false) { G = 0; document.getElementById('cg').value = '0'; }
+				if (isNum(document.getElementById('cb').value) == false) { B = 0; document.getElementById('cb').value = '0'; }
+				
+				HR = R.toString('16');
+				HG = G.toString('16');
+				HB = B.toString('16');
+				
+				HR = padHex(HR);
+				HG = padHex(HG);
+				HB = padHex(HB);
+
+				C = ('#' + HR + HG + HB).toUpperCase();
+				
+				document.getElementById('ch').value = C;
+
+				document.getElementById('cprev').style.backgroundColor = C;
+			}
+			
+			function padHex(i) {
+				if (i.length == 1) {
+					return '0' + i;
+				} else {
+					return i;
+				}
+			}
+			
+			function isNum(C) {
+				var isOk = /(^[0-9]{3}$)|(^[0-9]{2}$)|(^[0-9]{1}$)/i.test(C);
+				return isOk;
+			}
+			
+			function reset() {
+				document.getElementById('cr').focus();
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Color converter - RGB <a href="hextorgb.html">&lt;-&gt;</a> Hex</h1>
+		<noscript>JavaScript is needed!</noscript>
+		<hr />
+		<div id="content">
+			<center>
+			<form action="javascript:void(0)">
+				<input type="text" id="cr" maxlength="3" class="num" placeholder="R" autofocus>
+				<input type="text" id="cg" maxlength="3" class="num" placeholder="G">
+				<input type="text" id="cb" maxlength="3" class="num" placeholder="B">
+				<div id="cprev"></div>
+				<br />
+				<button type="submit" onclick="convertColor()">Convert</button>
+				<button type="reset" onclick="reset()">Reset</button>
+				<br />
+				<input type="text" id="ch" maxlength="7" readonly>
+			</form>
+			</center>
+		</div>
+		<hr />
+		<p>
+			<var>
+				Copyright (&copy;) 2015 Brennced Development (<a href="http://brennced.github.io">http://brennced.github.io</a>). All rights reserved.
+			</var>
+		</p>
+	</body>
+</html>
