@@ -1,0 +1,8 @@
+Inputs.css is compatible with the following browsers:
+    Firefox 40.0.3 or newer
+    Microsoft Edge 20.10240.16384.0 or newer
+    Internet Explorer 11
+    Chrome 44.0.2403.157 or newer
+    Opera 31.0.1889.207 or newer
+    
+  (Might work with some older version, too!)
