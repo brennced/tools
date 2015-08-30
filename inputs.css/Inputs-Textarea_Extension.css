@@ -1,0 +1,37 @@
+
+	/*############################################
+	#                                            #
+	#   Textarea Extension for Inputs.css        #
+	#   Copyright (©) 2015 Brennced Development. #
+	#   All rights reserved.                     #
+	#                                            #
+	#   When using this stylesheet, please give  #
+	#   credits to me including my website:      #
+	#                                            #
+	#   http://brennced.github.io/               #
+	#                                            #
+	############################################*/
+
+
+		/* Appearance of textarea */
+			textarea.inputs {
+				border-radius: 2px !important;
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				-ms-appearance: none;
+				height: 20px;
+				margin: 2px;
+				padding: 2px !important;
+				font-size: 11px;
+				border: 1px solid gray;
+				outline: none !important;
+				background: #FFF;
+				display: inline-block;
+				box-shadow: 0px 2px 2px #CCC inset;
+			}
+			textarea.inputs:focus {
+				border: 1px solid #90A1DF;
+			}
+			textarea.inputs.noresize {
+				resize: none;
+			}
