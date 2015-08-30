@@ -1,0 +1,113 @@
+
+	/*############################################
+	#                                            #
+	#   Hyperlink extension for Inputs.css       #
+	#   Copyright (©) 2015 Brennced Development. #
+	#   All rights reserved.                     #
+	#                                            #
+	#   When using this stylesheet, please give  #
+	#   credits to me including my website:      #
+	#                                            #
+	#   http://brennced.github.io/               #
+	#                                            #
+	############################################*/
+
+
+		/* White (class="inputs") and general appearance */
+			a.inputs {
+				box-shadow: 0px -2px 2px rgba(0,0,0,0.15) inset;
+				height: 26px !important;
+				cursor: pointer;
+				background-color: #FFFFFF;
+				text-decoration: none;
+				font-family: sans-serif;
+				color: black;
+				border-radius: 2px !important;
+				border: 1px solid gray;
+				outline: none !important;
+				background: #FFF;
+				display: inline-block;
+				vertical-align: middle;
+				font-size: 11px;
+				line-height: 26px;
+				padding: 0px 2px;
+			}
+			a.inputs:hover {
+				background-color: #EAEAEA;
+			}
+			a.inputs:active {
+				background-color: #CFCFCF;
+				box-shadow: 0px 2px 2px rgba(0,0,0,0.25) inset;
+			}
+			
+		/* Red (class="inputs red") */
+			a.inputs.red {
+				background-color: #C85555;
+				color: white;
+			}
+			a.inputs.red:hover {
+				background-color: #EB8282;
+			}
+			a.inputs.red:active {
+				background-color: #AA4141;
+			}
+			
+		/* Green (class="inputs green") */
+			a.inputs.green {
+				background-color: #55C855;
+				color: white;
+			}
+			a.inputs.green:hover {
+				background-color: #82EB82;
+			}
+			a.inputs.green:active {
+				background-color: #41AA41;
+			}
+			
+		/* Orange (class="inputs orange") */
+			a.inputs.orange {
+				background-color: #F78A31;
+				color: white;
+			}
+			a.inputs.orange:hover {
+				background-color: #FDA258;
+			}
+			a.inputs.orange:active {
+				background-color: #E26D15;
+			}
+			
+		/* Purple (class="inputs purple") */
+			a.inputs.purple {
+				background-color: #BA91F5;
+				color: white;
+			}
+			a.inputs.purple:hover {
+				background-color: #C4A4F6;
+			}
+			a.inputs.purple:active {
+				background-color: #9171BF;
+			}
+			
+		/* Blue (class="inputs blue") */
+			a.inputs.blue {
+				background-color: #91A4F5;
+				color: white;
+			}
+			a.inputs.blue:hover {
+				background-color: #A4B2F6;
+			}
+			a.inputs.blue:active {
+				background-color: #7180BF;
+			}
+			
+		/* Yellow (class="inputs yellow") */
+			a.inputs.yellow {
+				background-color: #F4F591;
+				color: black;
+			}
+			a.inputs.yellow:hover {
+				background-color: #F8F9C5;
+			}
+			a.inputs.yellow:active {
+				background-color: #BEBF71;
+			}
