@@ -1,0 +1,131 @@
+
+	/*############################################
+	#                                            #
+	#   Inputs.css                               #
+	#   Copyright (©) 2015 Brennced Development. #
+	#   All rights reserved.                     #
+	#                                            #
+	#   When using this stylesheet, please give  #
+	#   credits to me including my website:      #
+	#                                            #
+	#   http://brennced.github.io/               #
+	#                                            #
+	############################################*/
+
+
+		/* Appearance of all inputs */
+			input[type] {
+				border-radius: 2px !important;
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				-ms-appearance: none;
+				height: 20px;
+				margin: 2px;
+				padding: 2px !important;
+				font-size: 11px;
+				border: 1px solid gray;
+				outline: none !important;
+				background: #FFF;
+				display: inline-block;
+			}
+			
+		/* Remove dotted border of buttons in Firefox */
+			input[type="submit"]::-moz-focus-inner, input[type="reset"]::-moz-focus-inner {
+				border: 0;
+			}
+		
+		/* Text box appearance */
+			input:not([type="submit"]):not([type="reset"]) {
+				box-shadow: 0px 2px 2px #CCC inset;
+			}
+			input:not([type="submit"]):not([type="reset"]):focus {
+				border: 1px solid #90A1DF;
+			}
+			
+		/* White (no class) */
+			input[type="submit"], input[type="reset"] {
+				box-shadow: 0px -2px 2px rgba(0,0,0,0.15) inset;
+				height: 26px !important;
+				cursor: pointer;
+				background-color: #FFFFFF;
+				color: black
+			}
+			input[type="submit"]:hover, input[type="reset"]:hover {
+				background-color: #EAEAEA;
+			}
+			input[type="submit"]:active, input[type="reset"]:active {
+				background-color: #CFCFCF;
+				box-shadow: 0px 2px 2px rgba(0,0,0,0.25) inset;
+			}
+			
+		/* Red (class="red") */
+			input[type="submit"].red, input[type="reset"].red {
+				background-color: #C85555;
+				color: white;
+			}
+			input[type="submit"].red:hover, input[type="reset"].red:hover {
+				background-color: #EB8282;
+			}
+			input[type="submit"].red:active, input[type="reset"].red:active {
+				background-color: #AA4141;
+			}
+			
+		/* Green (class="green") */
+			input[type="submit"].green, input[type="reset"].green {
+				background-color: #55C855;
+				color: white;
+			}
+			input[type="submit"].green:hover, input[type="reset"].green:hover {
+				background-color: #82EB82;
+			}
+			input[type="submit"].green:active, input[type="reset"].green:active {
+				background-color: #41AA41;
+			}
+			
+		/* Orange (class="orange") */
+			input[type="submit"].orange, input[type="reset"].orange {
+				background-color: #F78A31;
+				color: white;
+			}
+			input[type="submit"].orange:hover, input[type="reset"].orange:hover {
+				background-color: #FDA258;
+			}
+			input[type="submit"].orange:active, input[type="reset"].orange:active {
+				background-color: #E26D15;
+			}
+			
+		/* Purple (class="purple") */
+			input[type="submit"].purple, input[type="reset"].purple {
+				background-color: #BA91F5;
+				color: white;
+			}
+			input[type="submit"].purple:hover, input[type="reset"].purple:hover {
+				background-color: #C4A4F6;
+			}
+			input[type="submit"].purple:active, input[type="reset"].purple:active {
+				background-color: #9171BF;
+			}
+			
+		/* Blue (class="blue") */
+			input[type="submit"].blue, input[type="reset"].blue {
+				background-color: #91A4F5;
+				color: white;
+			}
+			input[type="submit"].blue:hover, input[type="reset"].blue:hover {
+				background-color: #A4B2F6;
+			}
+			input[type="submit"].blue:active, input[type="reset"].blue:active {
+				background-color: #7180BF;
+			}
+			
+		/* Yellow (class="yellow") */
+			input[type="submit"].yellow, input[type="reset"].yellow {
+				background-color: #F4F591;
+				color: black;
+			}
+			input[type="submit"].yellow:hover, input[type="reset"].yellow:hover {
+				background-color: #F8F9C5;
+			}
+			input[type="submit"].yellow:active, input[type="reset"].yellow:active {
+				background-color: #BEBF71;
+			}
