@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+
+	<!--##########################################
+	#                                            #
+	#   Demo page for Inputs.css and extensions  #
+	#   Copyright (©) 2015 Brennced Development. #
+	#   All rights reserved.                     #
+	#                                            #
+	#   http://brennced.github.io/               #
+	#                                            #
+	###########################################-->
+	
+	<head>
+		<title>Inputs.css Demo</title>
+		<meta charset="UTF-8">
+		<meta name="title" content="Inputs.css Demo">
+		<meta name="description" content="Demo page for Inputs.css and extensions">
+		<meta name="author" content="Brennced Development">
+		<meta name="viewport" content="width=device-width">
+		<link rel="stylesheet" href="Inputs.css">
+		<link rel="stylesheet" href="Inputs-Hyperlink_Extension.css">
+		<link rel="stylesheet" href="Inputs-Textarea_Extension.css">
+		<style>
+			body {
+				font-family: sans-serif;
+			}
+			a {
+				color: #0D7FFE;
+				text-decoration: none;
+				-webkit-transition: all 0.2s ease-out;
+				-moz-transition: all 0.2s ease-out;
+			}
+			a:hover {
+				text-decoration: underline;
+			}
+			h1 {
+				margin: 0px;
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				width: 100%;
+				background-color: #EDEDED;
+				border-bottom: 1px solid #929292;
+				box-shadow: 0px 2px 2px rgba(0,0,0,0.33);
+				padding: 8px 0px;
+				z-index: 100;
+			}
+			#hl {
+				margin: 0px 0px 0px 25px;
+			}
+			#spacetop {
+				border: 0px solid transparent;
+				margin-top: 70px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1><span id="hl">Demo page for Inputs.css and extensions</span></h1>
+		<hr id="spacetop" />
+		
+		<h4>Inputs.css</h4>
+		
+		<input type="text" placeholder="Text box" title="No class needed">
+		<input type="search" placeholder="Search box" title="No class needed">
+		<input type="email" placeholder="Email field" title="No class needed">
+		
+		<input type="reset" value="White" class="" title="class=&quot;&quot;">
+		<input type="reset" value="Red" class="red" title="class=&quot;red&quot;">
+		<input type="reset" value="Green" class="green" title="class=&quot;green&quot;">
+		<input type="reset" value="Blue" class="blue" title="class=&quot;blue&quot;">
+		<input type="reset" value="Yellow" class="yellow" title="class=&quot;yellow&quot;">
+		<input type="reset" value="Orange" class="orange" title="class=&quot;orange&quot;">
+		<input type="reset" value="Purple" class="purple" title="class=&quot;purple&quot;">
+		
+		<br />
+		
+		<h4>Inputs.css Hyperlink extension</h4>
+		
+		<a href="#" onclick="return false" class="inputs" title="class=&quot;inputs&quot;">White</a>
+		<a href="#" onclick="return false" class="inputs red" title="class=&quot;inputs red&quot;">Red</a>
+		<a href="#" onclick="return false" class="inputs green" title="class=&quot;inputs green&quot;">Green</a>
+		<a href="#" onclick="return false" class="inputs blue" title="class=&quot;inputs blue&quot;">Blue</a>
+		<a href="#" onclick="return false" class="inputs yellow" title="class=&quot;inputs yellow&quot;">Yellow</a>
+		<a href="#" onclick="return false" class="inputs orange" title="class=&quot;inputs orange&quot;">Orange</a>
+		<a href="#" onclick="return false" class="inputs purple" title="class=&quot;inputs purple&quot;">Purple</a>
+		
+		<br />
+		
+		<h4>Inputs.css Textarea extension</h4>
+		
+		<textarea class="inputs" title="class=&quot;inputs&quot;">Textarea</textarea>
+		<textarea class="inputs noresize" title="class=&quot;inputs noresize&quot;">Textarea (no resize)</textarea>
+		
+		<hr />
+		<p>
+			<var>
+				Copyright (&copy;) 2015 Brennced Development (<a href="http://brennced.github.io">http://brennced.github.io</a>). All rights reserved.
+			</var>
+		</p>
+	</body>
+</html>
