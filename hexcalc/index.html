@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Hexadecimal Calculator</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="http://brennced.github.io/tools/inputs.css/Inputs.css">
+		<style>
+			body {
+				font-family: sans-serif;
+			}
+			a {
+				color: #0D7FFE;
+				text-decoration: none;
+			}
+			a:hover {
+				text-decoration: underline;
+			}
+			h1 {
+				margin: 0px;
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				width: 100%;
+				background-color: #EDEDED;
+				border-bottom: 1px solid #929292;
+				box-shadow: 0px 2px 2px rgba(0,0,0,0.33);
+				padding: 8px 0px;
+				z-index: 100;
+			}
+			#hl {
+				margin: 0px 0px 0px 25px;
+			}
+			#spacetop {
+				border: 0px solid transparent;
+				margin-top: 70px;
+			}
+		</style>
+		
+		<script>
+			function chextodec() {
+				var hexInput = document.getElementById('inpt').value;
+				var decOutpt = parseInt(hexInput, 16);
+				document.getElementById('outpt').value = decOutpt;
+				if (document.getElementById('outpt').value == 'NaN') {
+					document.getElementById('outpt').style.borderColor = '#C77070';
+					document.getElementById('outpt').value = 'Invalid';
+				} else {
+					document.getElementById('outpt').style.borderColor = 'lightgray';
+				}
+			}
+			
+			function cdectohex() {
+				var decInput = document.getElementById('inptd').value;
+				var hexOutpt = parseInt(decInput).toString('16');
+				document.getElementById('outptd').value = hexOutpt;
+				if (document.getElementById('outptd').value == 'NaN') {
+					document.getElementById('outptd').style.borderColor = '#C77070';
+					document.getElementById('outptd').value = 'Invalid';
+				} else {
+					document.getElementById('outptd').style.borderColor = 'lightgray';
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h1><span id="hl">Hexadecimal calculator</span></h1>
+		<hr id="spacetop" />
+		
+		<table>
+			<tr>
+				<form action="javascript:void(0)">
+					<td><input type="text" placeholder="Enter hex number" id="inpt"></td>
+					<td><input type="submit" onclick="chextodec()" value="Convert to decimal"></td>
+					<td><input type="text" placeholder="Output" id="outpt" readonly style="border-color: lightgray"></td>
+					<td><input type="reset" value="Reset" class="red" onclick="document.getElementById('outpt').style.borderColor='lightgray'"></td>
+				</form>
+			</tr>
+			<tr>
+				<form action="javascript:void(0)">
+					<td><input type="text" placeholder="Enter decimal number" id="inptd"></td>
+					<td><input type="submit" onclick="cdectohex()" value="Convert to hexadecimal"></td>
+					<td><input type="text" placeholder="Output" id="outptd" readonly style="border-color: lightgray"></td>
+					<td><input type="reset" value="Reset" class="red" onclick="document.getElementById('outptd').style.borderColor='lightgray'"></td>
+				</form>
+			</tr>
+		</table>
+		
+		<p>This is not my color code converter. You can find it <a href="http://brennced.github.io/tools/color/">here</a>.</p>
+		
+		<footer>
+			<hr />
+			<p>
+				<var>
+					Copyright (&copy;) 2015 Brennced Development (<a href="http://brennced.github.io">http://brennced.github.io</a>). All rights reserved.
+				</var>
+			</p>
+		</footer>
+	</body>
+</html>
