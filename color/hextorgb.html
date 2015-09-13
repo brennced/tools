@@ -4,6 +4,7 @@
 		<title>Color converter - Hex to RGB</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width">
+		<link rel="stylesheet" href="http://brennced.github.io/tools/inputs.css/Inputs.css">
 		<style>
 			h1 { margin: 0px; padding: 0px; }
 		</style>
@@ -90,20 +91,6 @@
 				margin: 0px;
 			}
 			
-			input[type="text"] {
-				-webkit-apperance: none;
-				-moz-apperance: none;
-				-ms-apperance: none;
-				apperance: none;
-				padding: 1px;
-				border: 2px gainsboro inset;
-				box-shadow: none;
-				background-color: white;
-				background-image: none;
-				border-radius: 0px;
-				background-clip: padding-box;
-			}
-			
 			h1 > a {
 				font-size: 50%;
 				vertical-align: middle;
@@ -160,7 +147,7 @@
 				<div id="cprev"></div>
 				<br />
 				<input onclick="ccolor()" type="submit" value="Convert">
-				<input onclick="reset()" type="reset" value="Reset">
+				<input onclick="reset()" type="reset" class="red" value="Reset">
 				<br />
 				<input type="text" id="outp" readonly>
 			</form>
