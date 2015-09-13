@@ -1,30 +1,30 @@
 <!doctype html>
 <html>
-    <head>
-        <title>Web colors</title>
+	<head>
+		<title>Web colors</title>
 		<meta name="viewport" content="width=device-width">
-        <meta charset="UTF-8">
+		<meta charset="UTF-8">
 		<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 		<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 		<link rel="stylesheet" href="http://brennced.github.io/tools/inputs.css/Inputs.css" type="text/css">
 		<link rel="shortcut icon" href="http://www.iconj.com/ico/n/o/noq1lo3fxs.ico" type="image/x-icon">
 		<link rel="icon" href="http://www.iconj.com/ico/n/o/noq1lo3fxs.ico" type="image/x-icon">
-        <style>
+		<style>
 			body {
 				background-image: url(http://i.imgur.com/WoZMyNv.png);
 				background-attachment: fixed;
 			}
-            div.color {
-                display: inline-block;
-                width: 64px;
-                height: 64px;
-                overflow: hidden;
-                padding: 0px;
-                margin: 3px;
+			div.color {
+				display: inline-block;
+				width: 64px;
+				height: 64px;
+				overflow: hidden;
+				padding: 0px;
+				margin: 3px;
 				float: left;
 				border: 1px solid transparent;
 				box-shadow: 0px 1px 1px rgba(0,0,0,0.33);
-            }
+			}
 			div.color:hover {
 				-webkit-transform: scale(1.2);
 				-moz-transform: scale(1.2);
@@ -47,11 +47,11 @@
 			}
 			#colorprev {
 				display: inline-block;
-                width: 128px;
-                height: 128px;
-                overflow: hidden;
-                padding: 0px;
-                margin: 30px;
+				width: 128px;
+				height: 128px;
+				overflow: hidden;
+				padding: 0px;
+				margin: 30px;
 				border: 1px solid lightgray;
 			}
 			#hcs, #rcs {
@@ -105,6 +105,7 @@
 				margin-right: 6px;
 				float: right;
 				outline: none;
+				opacity: 0;
 				-webkit-transition: all 0.25s ease;
 				-moz-transition: all 0.25s ease;
 				-ms-transition: all 0.25s ease;
@@ -129,7 +130,7 @@
 				display: inline;
 				position: relative;
 			}
-        </style>
+		</style>
 		<script>
 			$(document).ready(function(){
 				$(function () {
@@ -167,44 +168,44 @@
 				})
 			});
 		</script>
-        <script>
-            function padHex(i) {
-                if (i.length == 1) {
-                    return '0' + i;
-                } else {
-                    return i;
-                }
-            }
-            function hexColor(R,G,B) {
-                HR = R.toString('16');
-                HG = G.toString('16');
-                HB = B.toString('16');
-                
-                HR = padHex(HR);
-                HG = padHex(HG);
-                HB = padHex(HB);
+		<script>
+			function padHex(i) {
+				if (i.length == 1) {
+					return '0' + i;
+				} else {
+					return i;
+				}
+			}
+			function hexColor(R,G,B) {
+				HR = R.toString('16');
+				HG = G.toString('16');
+				HB = B.toString('16');
+				
+				HR = padHex(HR);
+				HG = padHex(HG);
+				HB = padHex(HB);
 
-                C = ('#' + HR + HG + HB).toUpperCase();
-                return C;
-            }
-            function hexColorNoH(R,G,B) {
-                HR = R.toString('16');
-                HG = G.toString('16');
-                HB = B.toString('16');
-                
-                HR = padHex(HR);
-                HG = padHex(HG);
-                HB = padHex(HB);
+				C = ('#' + HR + HG + HB).toUpperCase();
+				return C;
+			}
+			function hexColorNoH(R,G,B) {
+				HR = R.toString('16');
+				HG = G.toString('16');
+				HB = B.toString('16');
+				
+				HR = padHex(HR);
+				HG = padHex(HG);
+				HB = padHex(HB);
 
-                C = (HR + HG + HB).toUpperCase();
-                return C;
-            }
-            function showColorInfo(rgbcolor, idofcube) {
+				C = (HR + HG + HB).toUpperCase();
+				return C;
+			}
+			function showColorInfo(rgbcolor, idofcube) {
 				document.getElementById('bigcolorinfo').style.display='inline-block';
 				$( "#bigcolorinfo" ).hide().fadeIn("fast", function() {});
 				
 				var clr = rgbcolor.split(':');
-                document.getElementById('colorprev').style.backgroundColor = "rgb(" + clr[0] + "," + clr[1] + "," + clr[2] + ")";
+				document.getElementById('colorprev').style.backgroundColor = "rgb(" + clr[0] + "," + clr[1] + "," + clr[2] + ")";
 				var r = parseInt(clr[0]);
 				var g = parseInt(clr[1]);
 				var b = parseInt(clr[2]);
@@ -217,7 +218,7 @@
 				document.getElementById('hotlink').href = "#" + idofcube;
 				
 				document.getElementById(idofcube).style.removeProperty('borderColor');
-            }
+			}
 			function isNumeric(num) {
 				var n = parseInt(num);
 				return !isNaN(n);
@@ -270,9 +271,9 @@
 					document.getElementById('bigcolorinfo').style.display = 'none';
 				});
 			}
-        </script>
-    </head>
-    <body onload="initPage()">
+		</script>
+	</head>
+	<body onload="initPage()">
 		<p id="headerp">
 			<var style="margin-left: 6px">
 				Copyright (&copy;) 2015 Brennced Development (<a href="http://brennced.github.io">http://brennced.github.io</a>). All rights reserved.
@@ -289,7 +290,7 @@
 			width: 0px;
 			margin-bottom: 38px;
 		" />
-        <div id="colorcubes">
+		<div id="colorcubes">
 			<script>
 				for(i = 0; i < 1 << 12; i++) {
 					r = ((i>>8) & 0xf) * 0x11;
@@ -310,5 +311,5 @@
 				<span id="rcs"></span><br />
 			</div>
 		</div>
-    </body>
+	</body>
 </html>
