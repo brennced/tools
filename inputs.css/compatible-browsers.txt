@@ -1,8 +1,8 @@
 Inputs.css is tested with the following browsers:
-    Firefox 40.0.3 or newer
+    Firefox 12 or newer
     Microsoft Edge 20.10240.16384.0 or newer
     Internet Explorer 11.0.10240.16431 (Update version: 11.0.22 (KB3078071))
-    Chrome 44.0.2403.157 or newer
+    Chrome 34.0.1847.131 or newer
     Opera 31.0.1889.207 or newer
     Safari 8 or newer
     Firefox for Android 40.0 or newer
