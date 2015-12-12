@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+	<head>
+		<title>QrMagic &ndash; QR Code Generator</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<style>
+			body {
+				font-family: sans-serif;
+				font-size: 10pt;
+				margin: 60px 0px 0px 120px;
+				-webkit-transition: margin 0.5s ease;
+				-moz-transition: margin 0.5s ease;
+				transition: margin 0.5s ease;
+				background: url('http://i.imgur.com/8IJOc9n.png') repeat-x #D3D3D3;
+			}
+			.td-first-pull-right {
+				text-align: right;
+			}
+			h1 {
+				margin: 0px;
+				font-size: 18pt;
+			}
+			@media screen and (max-width: 640px) {
+				body {
+					margin: 0px;
+				}
+				.wide {
+					width: 100% !important;
+					max-width: 380px !important;
+				}
+			}
+			a {
+				color: #00F;
+				text-decoration: none;
+			}
+			a:hover {
+				color: #000080;
+				text-decoration: underline;
+			}
+			.wide {
+				width: 380px;
+				-webkit-transition: width 0.5s ease;
+				-moz-transition: width 0.5s ease;
+				transition: width 0.5s ease
+			}
+		</style>
+		<script src="js/jquery.js"></script>
+		<script src="js/qrcode.js"></script>
+	</head>
+	<body>
+		<table>
+			<tbody>
+				<tr>
+					<td class="td-first-pull-right"><img src="media/qrmagic.png"></td>
+					<td><h1>QrMagic</h1></td>
+				</tr>
+				<tr>
+					<td class="td-first-pull-right"><label>Text or URL:</label></td>
+					<td><input type="text" value="Sample" id="qrText" class="wide"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>or</td>
+				</tr>
+				<tr>
+					<td class="td-first-pull-right"><label>Upload text file:</label></td>
+					<td><input type="file" id="files" accept="text/plain"><input type="button" id="upload" value="Upload"></td>
+				</tr>
+				<tr>
+					<td class="td-first-pull-right"><label>Size:</label></td>
+					<td><input type="number" value="128" id="qrSize"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><button onclick="mkQr()">Create QR Code</button></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><div id="qrcode"></div></td>
+				</tr>
+				<tr>
+					<td class="td-first-pull-right"><a href="javascript:;" id="qrOpen">Open</a></td>
+					<td><a href="javascript:;" id="qrDownload">Download</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<script>
+			var xFilename = "unnamed";
+			var imgIndex = 1;
+			$(document).ready(function() {
+				mkQr();
+				$("#qrOpen").click(function() {
+					viewURI(document.getElementsByTagName("img")[imgIndex].src);
+				});
+				$("#qrDownload").click(function() {
+					downloadURI(document.getElementsByTagName("img")[imgIndex].src, xFilename + ".png");
+				});
+			});
+			
+			function mkQr() {
+				xFilename = $("#qrText").val();
+				$("#qrcode").html('');
+				var qrcode = new QRCode("qrcode", {
+					text: $('#qrText').val(),
+					width: parseInt($("#qrSize").val()),
+					height: parseInt($("#qrSize").val()),
+					colorDark : "#000000",
+					colorLight : "#ffffff",
+					correctLevel : QRCode.CorrectLevel.H
+				});
+			}
+			
+			function downloadURI(uri, name) {
+				var link = document.createElement("a");
+				document.body.appendChild(link);
+				link.download = name;
+				link.href = uri;
+				link.click();
+				document.body.removeChild(link);
+			}
+			function viewURI(uri) {
+				var link = document.createElement("a");
+				document.body.appendChild(link);
+				link.href = uri;
+				link.target = "_blank";
+				link.click();
+				document.body.removeChild(link);
+			}
+			
+			var fileInput = $('#files');
+			var uploadButton = $('#upload');
+
+			uploadButton.on('click', function() {
+				if (!window.FileReader) {
+					alert('Your browser is not supported');
+					return false;
+				}
+				var input = fileInput.get(0);
+
+				// Create a reader object
+				var reader = new FileReader();
+				if (input.files.length) {
+					var textFile = input.files[0];
+					// Read the file
+					reader.readAsText(textFile);
+					// When it's loaded, process it
+					$(reader).on('load', processFile);
+				} else {
+					alert('Please upload a file before continuing')
+				} 
+			});
+
+			function processFile(e) {
+				var file = e.target.result;
+				$("#qrText").val(file);
+			}
+		</script>
+	</body>
+</html>
