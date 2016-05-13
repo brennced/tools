@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Noise texture generator</title>
+		<link rel="shortcut icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADD0lEQVQ4jT2SUWQ6DwDHz0gkZsQ5EhOzpxwZiSMjY2LimJhIZBwZ6SWOjOxlzBH3FnMkRkZGRuRIZC8xEueYmHEkcmTk83/4+e/9+/D5fnyEZrOJ53nYts1oNOLm5oZGo8F+v2e5XBIOh8nn85TLZUajEZ7nsVgskCSJbreLEI/HCQaDTKdTLi8vcRwHy7I4PT1lvV7TarVIp9PEYjESiQSyLHNxccHV1RWBQADB931s20aWZYbD4d+g3++zWCw4OTnBtm00TcP3fVzXJRwO/1ELLy8v1Ot1VqsVrutiGAaO4yDLMs1mk6OjI3q9HsPhkHa7jaIo1Ot1crkc9Xod4f39nWg0yna7JRAIoGka2WwWQRB4fHxEkiRCoRDFYpFQKMRut0NRFFarFZPJBOH/z6VSiX6/z2AwwDRNJEliPB6zXq8JBALsdjum0ymSJKHrOvP5nEgkghCNRlEUhcFgwGg0Qtd1lsslnuehqiqiKGKaJp1Oh1qtxuHhIZ+fn0QiEabTKYIkSTw/P5NKpRiPx+i6jmVZeJ6HoiiYpolhGCSTSRRFwfM8MpkMZ2dnXF9fI7iui6qqFItFZFmmWq1ye3tLKpXC932+vr7Y7XYUCgUkSaJcLjObzf5aETabDdvtllQqhWmahMNhIpEIoijy+/uLbdtsNhtEUcRxHH5+fphMJhiGwWq1Qnh9fSWfz2MYBr7v0+l0mEwmPD090W63mc/nDAYDXNfl4OCAdruN67qcn5+TyWQQdF2nUqlQqVQQRRFBELi7u+P4+BjLsigUCmiaxmw2I51Os1gsiMViKIqCZVkI2WyWbrdLPB5nOByy3W5JJpMUi0XS6TTf398YhsHDwwOlUolWq4VlWbiuy3w+R7Btm0ajgSRJJJNJarUaiqJQKBQYjUZIksR+v6darZJKpYjH4/i+j+M4BIPBfxKTySS9Xg/TNNE07S+oRCKBqqqoqsr9/T2z2YxCoUCtVkOWZT4+PhBUVSUajSKKIvP5/A9ZlmWurq7Y7XZEIhFyuRzj8fgftiDw9vZGLpfjPyzdgPmBiuMEAAAAAElFTkSuQmCC">
+		<style type="text/css">
+			html, body {
+				height: 100%;
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				height: calc(100% - 6px);
+				margin: 2px 0 0 2px;
+			}
+			#cvns {
+				border: 1px solid #ddd;
+			}
+			.hidden {
+				display: none;
+			}
+			.fleft {
+				float: left;
+			}
+			.fit {
+				max-height: 100%;
+			}
+			#cc {
+				width: 1024px;
+				height: 100%;
+				overflow-y: visible;
+				border-right: 1px solid #ddd;
+				padding-right: 4px;
+				margin-right: 4px;
+				overflow-x: auto;
+				padding-bottom: 6px;
+				box-sizing: border-box;
+			}
+			h1 {
+				margin: 0 0 12px;
+				border-bottom: 1px solid #ddd;
+			}
+			a {
+				color: #ba2d29;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="cc" class="fleft"><canvas id="cvns" width="128" height="128" class="fit"></canvas></div>
+		<div class="fleft">
+			<h1>Noise texture generator</h1>
+			<label>Noise size: <input type="text" id="size" value="128"><sup>2</sup>px</label>
+			<br>
+			<button onclick="draw()">Redraw</button>
+			<br>
+			<button onclick="$('#cvns').toggleClass('fit');">Toggle size to fit</button>
+			<hr>
+			<var>Copyright &copy; 2016 <a href="https://brennced.github.io/" target="_blank" rel="nofollow">Brennced</a>. All rights reserved.</var>
+		</div>
+		<script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				draw();
+			});
+
+			function draw() {
+				var ctx = document.getElementById("cvns").getContext("2d"),
+				    matrixsize = parseInt($("#size").val()),
+				    color = "#000000",
+				    minColor = 0,
+				    maxColor = 100;
+
+				document.getElementById("cvns").width = matrixsize;
+				document.getElementById("cvns").height = matrixsize;
+
+				for (x = 0; x < matrixsize; x++) {
+					for (y = 0; y < matrixsize; y++) {
+						thecolor = increase_brightness(color, rIntRng(minColor,maxColor));
+						ctx.fillStyle = thecolor;
+						ctx.fillRect(x, y, 1, 1);
+					}
+				}
+			}
+
+			function increase_brightness(hex, percent) {
+				hex = hex.replace(/^\s*#|\s*$/g, '');
+
+				if (hex.length == 3) {
+					hex = hex.replace(/(.)/g, '$1$1');
+				}
+
+				var r = parseInt(hex.substr(0, 2), 16),
+					g = parseInt(hex.substr(2, 2), 16),
+					b = parseInt(hex.substr(4, 2), 16);
+
+				return '#' +
+				   ((0|(1<<8) + r + (256 - r) * percent / 100).toString(16)).substr(1) +
+				   ((0|(1<<8) + g + (256 - g) * percent / 100).toString(16)).substr(1) +
+				   ((0|(1<<8) + b + (256 - b) * percent / 100).toString(16)).substr(1);
+			}
+
+			function rIntRng(min, max) {
+				return Math.floor(Math.random() * (max - min + 1)) + min;
+			}
+
+			function testPixel(i, j, matrixsize) {
+				var ctx = document.getElementById("cvns").getContext("2d");
+				ctx.fillStyle = "blue";
+				ctx.fillRect(i*matrixsize, j*matrixsize, matrixsize, matrixsize);
+			}
+
+			function inArray(v, a) {
+				return (a.indexOf(v) > -1);
+			}
+		</script>
+	</body>
+</html>
+<!-- 1.0.16-513 -->
